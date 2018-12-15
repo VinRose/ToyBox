@@ -44,10 +44,24 @@ namespace ExcelExport
             string message = "You have to select a file path. Do you want to open file explorer?";
             string caption = "Error!";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            
             DialogResult result = MessageBox.Show(message, caption, buttons);
 
             return result == DialogResult.Yes ?
                 true : false;
+        }
+
+        public class ExcelAddInEvent : IExcelAddIn
+        {
+            public void AutoClose()
+            {
+                MessageBox.Show("Closed!");
+            }
+
+            public void AutoOpen()
+            {
+                MessageBox.Show("Initialized!");
+            }
         }
     }
 }
