@@ -29,8 +29,10 @@ namespace ExcelExport
             var filePath = string.Empty;
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                if(ofd.ShowDialog() == DialogResult.OK)
+                ofd.Filter = "xml files (*.xml)|*.xml";
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
+
                     filePath = ofd.FileName;
                 }
             }
